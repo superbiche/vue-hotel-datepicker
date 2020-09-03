@@ -1,63 +1,15 @@
-/* =============================================================
-* VARIABLES
-* ============================================================*/
-$white: #fff;
-$black: #000;
-$gray: #424b53;
-$primary-text-color: #35343d;
-$lightest-gray: #f3f5f8;
-$primary-color: #195252;
-$medium-gray: #424b53;
-$light-gray: #eaeaea;
-$disabledBg: #f5f7f8;
-$disabled-color: #D8D8D8;
-$dark-gray: #2d3047;
-$box-shadow: 0 0 10px 3px rgba(red, .4);
+@import "_variables";
 
-// Bg Date when hover it
-$bgValidHoverDate: $primary-color;
-$colorValidHoverDate: $white;
+@import "_mixins";
 
-// Bg Date when range or valid it
-$bgRollActiveDage: $primary-color;
-$colorRollActiveDage: $white;
-
-$font-family: 'Helvetica Neue';
-$font-small: 14px;
-$font-regular: 400;
-$font-bold: 700;
-
-$width-half-day: 120px;
-
-/* =============================================================
-* RESPONSIVE LAYOUT HELPERS
-* ============================================================*/
-$tablet: '(min-width: 480px) and (max-width: 767px)';
-$phone: '(max-width: 479px)';
-$desktop: '(min-width: 768px)';
-$up-to-tablet: '(max-width: 767px)';
-$extra-small-screen: '(max-width: 23em)';
-
-@mixin focusStyle() {
-  &:focus {
-    outline: none
-  }
-}
-
-@mixin device($device-widths) {
-  @media screen and #{$device-widths} {
-    @content
-  }
-}
-
-.square {
+.vhd-square {
   position: relative;
   width: calc(100% / 7);
   float: left;
   font-family: $font-family;
 }
 
-.datepicker__wrapper {
+.vhd-datepicker__wrapper {
 
   *,
   *::before,
@@ -70,7 +22,7 @@ $extra-small-screen: '(max-width: 23em)';
 * BASE STYLES
 * ============================================================*/
 
-.datepicker {
+.vhd-datepicker {
   transition: all .2s ease-in-out;
   background-color: $white;
   font-size: 16px;
@@ -142,13 +94,13 @@ $extra-small-screen: '(max-width: 23em)';
     height: 48px;
     background: $white url('calendar_icon.regular.svg') no-repeat 17px center / 16px;
 
-    &--grid .square .datepicker__month-day {
+    &--grid .vhd-square .vhd-datepicker__month-day {
       border: 1px solid $light-gray;
       margin: -1px 0 0 -1px;
     }
 
     &--booking {
-      .datepicker__month-day-wrapper span {
+      .vhd-datepicker__month-day-wrapper span {
         text-align: right;
         padding-top: 10px;
         padding-right: 10px;
@@ -156,7 +108,7 @@ $extra-small-screen: '(max-width: 23em)';
         top: 0;
         transform: none;
       }
-      .datepicker__month-day:before {
+      .vhd-datepicker__month-day:before {
         display: none;
       }
     }
@@ -166,10 +118,10 @@ $extra-small-screen: '(max-width: 23em)';
     background: none;
     height: auto;
 
-    .datepicker__close-button, .datepicker__dummy-wrapper, .datepicker__clear-button, .-hide-on-desktop{
+    .vhd-datepicker__close-button, .vhd-datepicker__dummy-wrapper, .vhd-datepicker__clear-button, .-hide-on-desktop{
       display: none;
     }
-    .datepicker {
+    .vhd-datepicker {
       position: relative;
       top: 0;
     }
@@ -178,11 +130,11 @@ $extra-small-screen: '(max-width: 23em)';
       display: block;
     }
 
-    .datepicker__month-button {
+    .vhd-datepicker__month-button {
       display: inline-block;
     }
 
-    .datepicker__months {
+    .vhd-datepicker__months {
       position: static;
       margin: 0;
       width: auto;
@@ -224,7 +176,7 @@ $extra-small-screen: '(max-width: 23em)';
     width: 100%;
     height: 100%;
 
-    &--no-border.datepicker__dummy-wrapper {
+    &--no-border.vhd-datepicker__dummy-wrapper {
       border: 0;
     }
 
@@ -304,7 +256,7 @@ $extra-small-screen: '(max-width: 23em)';
     &--today {
       border: 0;
 
-      .datepicker__month-day-wrapper {
+      .vhd-datepicker__month-day-wrapper {
         border: 2px solid $primary-color;
         padding-top: calc(100% - 5px);
       }
@@ -342,7 +294,7 @@ $extra-small-screen: '(max-width: 23em)';
     }
 
     &--valid#{&}--not-allowed,
-    &--not-allowed.currentDay,
+    &--not-allowed.vhd-currentDay,
     &--valid#{&}--not-allowed:hover {
       color: $primary-color;
       font-weight: $font-regular;
@@ -491,12 +443,12 @@ $extra-small-screen: '(max-width: 23em)';
     }
   }
 
-  .show-tooltip {
-    .datepicker__months {
+  .vhd-show-tooltip {
+    .vhd-datepicker__months {
       margin-top: 160px;
       height: calc(100% - 160px);
     }
-    .datepicker__tooltip--mobile {
+    .vhd-datepicker__tooltip--mobile {
       height: auto;
       opacity: 1;
       padding: 15px;
@@ -543,7 +495,7 @@ $extra-small-screen: '(max-width: 23em)';
     &--full {
       width: 100%;
 
-      .datepicker__month {
+      .vhd-datepicker__month {
         width: 470px;
         padding: 0
       }
@@ -715,23 +667,23 @@ $extra-small-screen: '(max-width: 23em)';
   }
 }
 
-.-is-hidden {
+.-vhd-is-hidden {
   display: none;
 }
 
-.-hide-up-to-tablet {
+.-vhd-hide-up-to-tablet {
   @include device($up-to-tablet) {
     display: none;
   }
 }
 
-.-hide-on-desktop {
+.-vhd-hide-on-desktop {
   @include device($desktop) {
     display: none;
   }
 }
 
-.parent-bullet {
+.vhd-parent-bullet {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -741,7 +693,7 @@ $extra-small-screen: '(max-width: 23em)';
   display: block;
   z-index: -1;
 
-  .bullet {
+  .vhd-bullet {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -753,25 +705,25 @@ $extra-small-screen: '(max-width: 23em)';
       top: 50%;
     }
 
-    &.checkInCheckOut,
-    &.checkIn,
-    &.checkOut {
+    &.vhd-checkInCheckOut,
+    &.vhd-checkIn,
+    &.vhd-checkOut {
       width: 8px;
       height: 18px;
       border-radius: 10px;
 
-      &.bullet--small {
+      &.vhd-bullet--small {
         height: 6px;
         width: 14px;
       }
     }
 
-    &.checkInCheckOut {
+    &.vhd-checkInCheckOut {
       left: calc(50% - 15px);
     }
   }
 
-  .pipe {
+  .vhd-pipe {
     display: block;
     width: 100%;
     height: 4px;
@@ -783,21 +735,21 @@ $extra-small-screen: '(max-width: 23em)';
       top: 50%;
     }
 
-    &.pipe--small {
+    &.vhd-pipe--small {
       height: 3px;
     }
 
-    &.checkIn {
+    &.vhd-checkIn {
       left: calc(50% + 4px);
       width: calc(50% - 4px);
     }
 
-    &.checkOut {
+    &.vhd-checkOut {
       left: 0px;
       width: calc(50% - 4px);
     }
 
-    &.checkInCheckOut {
+    &.vhd-checkInCheckOut {
       width: calc(50% - 19px);
     }
   }

@@ -1,0 +1,30 @@
+/* =============================================================
+* VARIABLES
+* ============================================================*/
+$white: #fff !default;
+$black: #000 !default;
+$gray: #424b53 !default;
+$primary-text-color: #35343d !default;
+$lightest-gray: #f3f5f8 !default;
+$primary-color: #195252 !default;
+$medium-gray: #424b53 !default;
+$light-gray: #eaeaea !default;
+$disabledBg: #f5f7f8 !default;
+$disabled-color: #D8D8D8 !default;
+$dark-gray: #2d3047 !default;
+$box-shadow: 0 0 10px 3px rgba(red, .4) !default;
+
+// Bg Date when hover it
+$bgValidHoverDate: $primary-color !default;
+$colorValidHoverDate: $white !default;
+
+// Bg Date when range or valid it
+$bgRollActiveDage: $primary-color !default;
+$colorRollActiveDage: $white !default;
+
+$font-family: 'Helvetica Neue' !default;
+$font-small: 14px !default;
+$font-regular: 400 !default;
+$font-bold: 700 !default;
+
+$width-half-day: 120px !default;

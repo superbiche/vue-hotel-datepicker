@@ -1,8 +1,8 @@
 <template>
-    <i class="parent-bullet">
+    <i class="vhd-parent-bullet">
         <i
             v-if="previousBooking && duplicateBookingDates.includes(formatDate)"
-            class="bullet"
+            class="vhd-bullet"
             :style="previousBooking.style"
             :class="[
                 {
@@ -12,7 +12,7 @@
         />
         <i
             v-if="previousBooking && duplicateBookingDates.includes(formatDate)"
-            class="pipe checkInCheckOut"
+            class="vhd-pipe vhd-checkInCheckOut"
             :style="previousBooking.style"
         />
         <i
@@ -20,7 +20,7 @@
                 currentBooking &&
                     (currentBooking.checkInDate === formatDate || currentBooking.checkOutDate === formatDate)
             "
-            class="bullet"
+            class="vhd-bullet"
             :style="currentBooking.style"
             :class="[
                 {
@@ -31,7 +31,7 @@
         />
         <i
             v-if="currentBooking"
-            class="pipe"
+            class="vhd-pipe"
             :class="[
                 {
                     checkIn: currentBooking.checkInDate === formatDate,
